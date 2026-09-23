@@ -161,19 +161,19 @@ export const PROJECTS: Project[] = [
     highlightStats: 'ATS AI Engine'
   },
   {
-    id: 'finpulse-ai',
-    name: 'FinPulse AI',
+    id: 'datapulse-ai',
+    name: 'DataPulse AI',
     category: 'AI & Utilities',
-    description: 'Financial Intelligence & Predictive Analytics Platform dengan model analisis cerdas.',
-    longDescription: 'Platform pemantau dan prediksi tren keuangan menggunakan algoritma machine learning untuk mendeteksi anomali pengeluaran dan memberikan insight keuangan proaktif.',
-    topics: ['AI', 'Fintech', 'Predictive Analytics', 'Machine Learning', 'Data Viz'],
-    repoUrl: 'https://github.com/olyxmintabansos-byte/finpulse-ai',
-    demoUrl: '',
-    hasDemo: false,
-    featured: false,
-    status: 'Under Development',
+    description: 'Enterprise E-Commerce AI Predictive Analytics Platform - Inventory Forecast, Dynamic Pricing & Churn Prediction.',
+    longDescription: 'Platform analitik prediktif e-commerce modern dengan kecerdasan buatan. Dilengkapi simulasi ROI interaktif, visualisasi dynamic revenue bar chart, engine partikel adaptif, persistent dark/light theme, dan pricing tiering.',
+    topics: ['AI Analytics', 'E-Commerce', 'Predictive Modeling', 'Interactive Canvas', 'ROI Engine'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/datapulse-ai',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/datapulse-ai/',
+    hasDemo: true,
+    featured: true,
+    status: 'Production Ready',
     icon: 'TrendingUp',
-    highlightStats: 'Predictive Insights'
+    highlightStats: 'AI Predictive SaaS'
   },
   {
     id: 'yt-converter',
