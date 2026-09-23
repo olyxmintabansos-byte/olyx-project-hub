@@ -13,6 +13,9 @@ import {
   TrendingUp,
   Video,
   Gamepad2,
+  Building2,
+  BarChart3,
+  ShoppingBag,
   Layers,
   LucideProps,
 } from 'lucide-react';
@@ -31,6 +34,9 @@ const ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
   TrendingUp,
   Video,
   Gamepad2,
+  Building2,
+  BarChart3,
+  ShoppingBag,
 };
 
 interface ProjectIconProps extends LucideProps {
