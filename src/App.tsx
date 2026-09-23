@@ -45,7 +45,7 @@ export function App() {
   const handleResetFilters = () => {
     setSearchTerm('');
     setSelectedCategory(null);
-    setOnlyLiveDemo(false);
+    setStatusFilter('all');
   };
 
   return (

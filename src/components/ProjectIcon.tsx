@@ -16,6 +16,10 @@ import {
   Building2,
   BarChart3,
   ShoppingBag,
+  GraduationCap,
+  Users,
+  Bot,
+  Truck,
   Layers,
   LucideProps,
 } from 'lucide-react';
@@ -37,6 +41,10 @@ const ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
   Building2,
   BarChart3,
   ShoppingBag,
+  GraduationCap,
+  Users,
+  Bot,
+  Truck,
 };
 
 interface ProjectIconProps extends LucideProps {
