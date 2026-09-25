@@ -15,6 +15,12 @@ import {
   TrendingUp,
   Video,
   Box,
+  Brain,
+  GraduationCap,
+  Users,
+  Briefcase,
+  Building2,
+  ShoppingBag,
   ChevronRight,
   Sparkles,
 } from 'lucide-react';
@@ -35,6 +41,12 @@ const iconMap: Record<string, React.ReactNode> = {
   TrendingUp: <TrendingUp className="w-5 h-5 text-emerald-400" />,
   Video: <Video className="w-5 h-5 text-rose-400" />,
   Box: <Box className="w-5 h-5 text-sky-400" />,
+  Brain: <Brain className="w-5 h-5 text-violet-400" />,
+  GraduationCap: <GraduationCap className="w-5 h-5 text-cyan-400" />,
+  Users: <Users className="w-5 h-5 text-amber-400" />,
+  Briefcase: <Briefcase className="w-5 h-5 text-emerald-400" />,
+  Building2: <Building2 className="w-5 h-5 text-blue-400" />,
+  ShoppingBag: <ShoppingBag className="w-5 h-5 text-pink-400" />,
 };
 
 interface ProjectCardProps {

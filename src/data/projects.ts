@@ -10,6 +10,69 @@ export const CATEGORIES: CategoryType[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  // --- Flagship AI & Next-Gen ---
+  {
+    id: 'neuroforge-ai',
+    name: 'NeuroForge AI',
+    category: 'AI & Utilities',
+    description: 'Autonomous Multi-Agent LLM Orchestrator & Consensus Mesh - Zero-hallucination synthetic intelligence studio.',
+    longDescription: 'Platform orkestrasi multi-agen bertenaga LLM lokal. Menghubungkan agen arsitek, reviewer kode, dan arbiter sintesis eksekutif untuk menyelesaikan problem koding dan riset secara otonom tanpa halusinasi.',
+    topics: ['Multi-Agent AI', 'LLM Mesh', 'Next.js 15', 'TypeScript', 'Consensus Engine'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/neuroforge-ai',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/neuroforge-ai/',
+    hasDemo: true,
+    featured: true,
+    status: 'Production Ready',
+    icon: 'Brain',
+    highlightStats: 'Autonomous AI Mesh'
+  },
+  {
+    id: 'datapulse-ai',
+    name: 'DataPulse AI',
+    category: 'AI & Utilities',
+    description: 'Enterprise E-Commerce AI Predictive Analytics Platform - Inventory Forecast, Dynamic Pricing & Churn Prediction.',
+    longDescription: 'Platform analitik prediktif e-commerce modern dengan kecerdasan buatan. Dilengkapi simulasi ROI interaktif, visualisasi dynamic revenue bar chart, engine partikel adaptif, persistent dark/light theme, dan pricing tiering.',
+    topics: ['AI Analytics', 'E-Commerce', 'Predictive Modeling', 'Interactive Canvas', 'ROI Engine'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/datapulse-ai',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/datapulse-ai/',
+    hasDemo: true,
+    featured: true,
+    status: 'Production Ready',
+    icon: 'TrendingUp',
+    highlightStats: 'AI Predictive SaaS'
+  },
+  {
+    id: 'craftcv-ai',
+    name: 'CraftCV AI',
+    category: 'AI & Utilities',
+    description: 'Smart AI Resume & CV Builder - Pembuat resume berstandar ATS bertenaga kecerdasan buatan.',
+    longDescription: 'Aplikasi pembuat kurikulum vitae otomatis berbasis AI dengan format yang dioptimalkan untuk sistem ATS (Applicant Tracking System), saran kalimat deskripsi kerja, dan preview layout instan.',
+    topics: ['AI', 'Resume Builder', 'ATS Friendly', 'Career Tech', 'React'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/craftcv-ai',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/craftcv-ai/',
+    hasDemo: true,
+    featured: false,
+    status: 'Production Ready',
+    icon: 'FileText',
+    highlightStats: 'ATS AI Engine'
+  },
+  {
+    id: 'finpulse-ai',
+    name: 'FinPulse AI',
+    category: 'Fintech & SaaS',
+    description: 'Corporate Financial Intelligence & Cash Runway Monitor - Model analisis anomali arus kas berbasis machine learning.',
+    longDescription: 'Dashboard analitik keuangan perusahaan cerdas. Menghitung runway dana cadangan, deteksi pengeluaran anomali, forecasting budget kuartalan, dan simulasi skenario finansial stres-test.',
+    topics: ['Fintech AI', 'Cashflow', 'Forecasting', 'Machine Learning', 'Local-First'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/finpulse-ai',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/finpulse-ai/',
+    hasDemo: true,
+    featured: false,
+    status: 'Production Ready',
+    icon: 'TrendingUp',
+    highlightStats: 'Virtual CFO'
+  },
+
+  // --- Healthcare & Enterprise OS ---
   {
     id: 'medipulse-erp',
     name: 'MediPulse ERP',
@@ -26,6 +89,36 @@ export const PROJECTS: Project[] = [
     highlightStats: 'Next.js 15 App'
   },
   {
+    id: 'educore-os',
+    name: 'EduCore: Academic OS',
+    category: 'Healthcare & Enterprise',
+    description: 'Sistem Informasi Akademik & E-Rapor Terpadu Sekolah - Dapodik Lite, Rombel, Matriks Jadwal Pelajaran, & SPP Digital.',
+    longDescription: 'Sistem operasi manajemen institusi pendidikan terintegrasi. Menghubungkan portal publik showcase sekolah, data induk siswa (Dapodik Lite), timetable generator anti-bentrok, e-rapor siap cetak format A4, dan administrasi keuangan kartu SPP digital.',
+    topics: ['School OS', 'E-Rapor', 'Schedule Matrix', 'SPP Digital', 'Next.js 15'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/educore-os',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/educore-os/',
+    hasDemo: true,
+    featured: true,
+    status: 'Production Ready',
+    icon: 'GraduationCap',
+    highlightStats: 'Academic OS'
+  },
+  {
+    id: 'nexus-shiftops',
+    name: 'Nexus Corp & ShiftOps',
+    category: 'Healthcare & Enterprise',
+    description: 'Portal Korporasi B2B Modern & Smart Workforce Shift Scheduler - Visual Gantt Roster, 3-Shift Rotation & Overtime Calculator.',
+    longDescription: 'Kombinasi website korporasi agensi kelas atas dengan modul manajemen rotasi jadwal kerja bergilir (Shift Roster Matrix). Mendukung validasi maksimal 40 jam kerja/minggu, alur tukar shift mandiri, dan kalkulasi uang lembur otomatis.',
+    topics: ['Corporate Portal', 'Shift Scheduler', 'Gantt Timeline', 'HR Ops', 'Next.js'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/nexus-shiftops',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/nexus-shiftops/',
+    hasDemo: true,
+    featured: true,
+    status: 'Production Ready',
+    icon: 'Users',
+    highlightStats: 'Shift Roster OS'
+  },
+  {
     id: 'presensios',
     name: 'PresensiOS',
     category: 'Healthcare & Enterprise',
@@ -40,6 +133,53 @@ export const PROJECTS: Project[] = [
     icon: 'UserCheck',
     highlightStats: 'Geofence Radar'
   },
+
+  // --- Fintech, E-Commerce & Retail ---
+  {
+    id: 'simucorp-os',
+    name: 'SimuCorp OS',
+    category: 'Fintech & SaaS',
+    description: 'Cyber Economy & Empire Simulator - Simulasi konglomerasi bisnis, pasar saham candlestick, dan supply-chain multi-tier.',
+    longDescription: 'Simulasi ekonomi konglomerat korporat kelas berat. Bangun imperium bisnis dari warkop mikro hingga konglomerasi dirgantara, trading di bursa saham real-time dengan chart candlestick, rekrut tim eksekutif RPG, dan lakukan riset teknologi.',
+    topics: ['Simulation', 'Stock Market', 'Candlestick Chart', 'Tycoon', 'Local-First'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/simucorp-os',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/simucorp-os/',
+    hasDemo: true,
+    featured: true,
+    status: 'Production Ready',
+    icon: 'Building2',
+    highlightStats: 'Dynamic Stock Mkt'
+  },
+  {
+    id: 'forgecommerce-engine',
+    name: 'ForgeCommerce Engine',
+    category: 'Fintech & SaaS',
+    description: 'Next-Gen Headless Storefront & Marketplace Engine - Quick-Cart Drawer, Simulator Ongkir Nusantara, & Mock Payment QRIS/VA.',
+    longDescription: 'Platform belanja online headless berestetika minimalis. Dilengkapi drawer Quick-Cart tanpa reload, kalkulator estimasi ongkir kota-kota Indonesia (JNE/J&T/SiCepat), checkout simulasi payment gateway (BCA/Mandiri VA & QRIS), dan fulfillment dashboard penjual.',
+    topics: ['Headless Storefront', 'Quick-Cart', 'Ongkir Nusantara', 'Payment Gateway', 'Next.js 15'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/forgecommerce-engine',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/forgecommerce-engine/',
+    hasDemo: true,
+    featured: true,
+    status: 'Production Ready',
+    icon: 'ShoppingBag',
+    highlightStats: 'Headless E-Com'
+  },
+  {
+    id: 'omnipos-os',
+    name: 'OmniPOS OS',
+    category: 'Fintech & SaaS',
+    description: 'Point of Sale & Cashier Management Operating System untuk ritel dan kafe modern.',
+    longDescription: 'Solusi kasir digital multi-outlet dengan dukungan transaksi cepat, split bills, cetak struk thermal, denah meja restoran interaktif, Kitchen Display System (KDS), dan sinkronisasi inventori stok produk.',
+    topics: ['POS System', 'Retail', 'Inventory', 'Cashier', 'Table Matrix'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/omnipos-os',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/omnipos-os/',
+    hasDemo: true,
+    featured: false,
+    status: 'Production Ready',
+    icon: 'CreditCard',
+    highlightStats: 'Core POS Engine'
+  },
   {
     id: 'buku-kas-umkm',
     name: 'Buku Kas UMKM (FinOS)',
@@ -50,25 +190,59 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/olyxmintabansos-byte/buku-kas-umkm',
     demoUrl: 'https://olyxmintabansos-byte.github.io/buku-kas-umkm/',
     hasDemo: true,
-    featured: true,
+    featured: false,
     status: 'Production Ready',
     icon: 'Wallet',
     highlightStats: 'Zero-Bloat FinTech'
   },
+
+  // --- Portfolio & Media Tools ---
   {
-    id: 'omnipos-os',
-    name: 'OmniPOS OS',
-    category: 'Fintech & SaaS',
-    description: 'Point of Sale & Cashier Management Operating System untuk ritel dan kafe modern.',
-    longDescription: 'Solusi kasir digital multi-outlet dengan dukungan transaksi cepat, split bills, cetak struk thermal, dan sinkronisasi inventori stok produk.',
-    topics: ['POS System', 'Retail', 'Inventory', 'Cashier', 'Dashboard'],
-    repoUrl: 'https://github.com/olyxmintabansos-byte/omnipos-os',
-    demoUrl: '',
-    hasDemo: false,
+    id: 'olyx-portfolio',
+    name: 'Olyx Developer Portfolio',
+    category: 'AI & Utilities',
+    description: 'Interactive Software Engineering Showcase & Personal Site @olyxmintabansos-byte.',
+    longDescription: 'Website portofolio developer resmi Olyx dengan visual cyber-minimalist, display terminal interaktif, audit matrix seluruh repositori, dan rekam jejak arsitektur sistem.',
+    topics: ['Portfolio', 'Cyber Aesthetic', 'React', 'TypeScript', 'Tailwind CSS'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/olyx-portfolio',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/olyx-portfolio/',
+    hasDemo: true,
     featured: false,
-    status: 'Source Available',
-    icon: 'CreditCard',
-    highlightStats: 'Core Engine'
+    status: 'Production Ready',
+    icon: 'Briefcase',
+    highlightStats: 'Personal Hub'
+  },
+  {
+    id: 'yt-converter',
+    name: 'YouTube Video & Audio Converter',
+    category: 'AI & Utilities',
+    description: 'Web converter & downloader untuk format video dan audio berkualitas tinggi bertenaga Python Flask.',
+    longDescription: 'Alat konversi media berbasis web yang ringan dan cepat. Mengubah link video streaming menjadi file audio MP3 atau MP4 dengan pilihan resolusi fleksibel.',
+    topics: ['Python', 'Flask', 'Audio Converter', 'Video Downloader', 'REST API'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/yt-converter',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/yt-converter/',
+    hasDemo: true,
+    featured: false,
+    status: 'Production Ready',
+    icon: 'Video',
+    highlightStats: 'Media Converter'
+  },
+
+  // --- Growtopia Tools ---
+  {
+    id: 'growtopia-calculator',
+    name: 'Growtopia TM Calculator',
+    category: 'Growtopia Tools',
+    description: 'Kalkulator Profit & Biaya Operasional Tesseract Manipulator (TM) Growtopia Berbasis React 19.',
+    longDescription: 'Kalkulator reaktif untuk mengkalkulasi efisiensi balok TM, konsumsi gems per putaran, dan estimasi laba World Locks (WL) secara real-time saat pengguna mengetik angka.',
+    topics: ['React 19', 'Growtopia', 'Tesseract Manipulator', 'Gems ROI', 'Calculator'],
+    repoUrl: 'https://github.com/olyxmintabansos-byte/growtopia-calculator',
+    demoUrl: 'https://olyxmintabansos-byte.github.io/growtopia-calculator/',
+    hasDemo: true,
+    featured: false,
+    status: 'Live Tool',
+    icon: 'Calculator',
+    highlightStats: 'TM Operator Suite'
   },
   {
     id: 'timer-gt',
@@ -145,51 +319,8 @@ export const PROJECTS: Project[] = [
     icon: 'Crosshair',
     highlightStats: 'Surgery Assistant'
   },
-  {
-    id: 'craftcv-ai',
-    name: 'CraftCV AI',
-    category: 'AI & Utilities',
-    description: 'Smart AI Resume & CV Builder - Pembuat resume berstandar ATS bertenaga kecerdasan buatan.',
-    longDescription: 'Aplikasi pembuat kurikulum vitae otomatis berbasis AI dengan format yang dioptimalkan untuk sistem ATS (Applicant Tracking System), saran kalimat deskripsi kerja, dan preview layout instan.',
-    topics: ['AI', 'Resume Builder', 'ATS Friendly', 'Career Tech', 'React'],
-    repoUrl: 'https://github.com/olyxmintabansos-byte/craftcv-ai',
-    demoUrl: '',
-    hasDemo: false,
-    featured: false,
-    status: 'Under Development',
-    icon: 'FileText',
-    highlightStats: 'ATS AI Engine'
-  },
-  {
-    id: 'datapulse-ai',
-    name: 'DataPulse AI',
-    category: 'AI & Utilities',
-    description: 'Enterprise E-Commerce AI Predictive Analytics Platform - Inventory Forecast, Dynamic Pricing & Churn Prediction.',
-    longDescription: 'Platform analitik prediktif e-commerce modern dengan kecerdasan buatan. Dilengkapi simulasi ROI interaktif, visualisasi dynamic revenue bar chart, engine partikel adaptif, persistent dark/light theme, dan pricing tiering.',
-    topics: ['AI Analytics', 'E-Commerce', 'Predictive Modeling', 'Interactive Canvas', 'ROI Engine'],
-    repoUrl: 'https://github.com/olyxmintabansos-byte/datapulse-ai',
-    demoUrl: 'https://olyxmintabansos-byte.github.io/datapulse-ai/',
-    hasDemo: true,
-    featured: true,
-    status: 'Production Ready',
-    icon: 'TrendingUp',
-    highlightStats: 'AI Predictive SaaS'
-  },
-  {
-    id: 'yt-converter',
-    name: 'YouTube Video & Audio Converter',
-    category: 'AI & Utilities',
-    description: 'Web converter & downloader untuk format video dan audio berkualitas tinggi bertenaga Python Flask.',
-    longDescription: 'Alat konversi media berbasis web yang ringan dan cepat. Mengubah link video streaming menjadi file audio MP3 atau MP4 dengan pilihan resolusi fleksibel.',
-    topics: ['Python', 'Flask', 'Audio Converter', 'Video Downloader', 'REST API'],
-    repoUrl: 'https://github.com/olyxmintabansos-byte/yt-converter',
-    demoUrl: '',
-    hasDemo: false,
-    featured: false,
-    status: 'Source Available',
-    icon: 'Video',
-    highlightStats: 'Python Engine'
-  },
+
+  // --- Gaming & Others ---
   {
     id: 'killerroblox',
     name: 'Roblox Gaming Hub',

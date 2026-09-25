@@ -25,29 +25,6 @@ export function App() {
     resetFilter,
   } = useFilter(PROJECTS);
 
-  const handleViewModeChange = (mode: 'grid' | 'list') => {
-    setViewMode(mode);
-    localStorage.setItem('olyx_view_mode', mode);
-  };
-
-  // Keyboard shortcut '/' to focus search
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === '/' && document.activeElement !== searchInputRef.current) {
-        e.preventDefault();
-        searchInputRef.current?.focus();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const handleResetFilters = () => {
-    setSearchTerm('');
-    setSelectedCategory(null);
-    setStatusFilter('all');
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#030712] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Top Navbar */}
