@@ -20,6 +20,8 @@ import {
   Users,
   Bot,
   Truck,
+  Brain,
+  Briefcase,
   Layers,
   LucideProps,
 } from 'lucide-react';
@@ -45,6 +47,8 @@ const ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
   Users,
   Bot,
   Truck,
+  Brain,
+  Briefcase,
 };
 
 interface ProjectIconProps extends LucideProps {
