@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { Search, X, ArrowRight, ExternalLink } from 'lucide-react';
 import { Project } from '../types/project';
 
 interface CommandPaletteProps {
@@ -17,15 +17,13 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 }) => {
   const [query, setQuery] = useState('');
 
-  // Listen for Ctrl+K / Cmd+K global shortcut
+  // Global Ctrl+K / Cmd+K
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         if (isOpen) {
           onClose();
-        } else {
-          // Open palette
         }
       }
       if (e.key === 'Escape' && isOpen) {
@@ -48,75 +46,89 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   });
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-slate-950/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-150">
+      <div className="relative w-full max-w-xl bg-[#0e1017] border-[3px] border-black shadow-[10px_10px_0px_#000] overflow-hidden z-10">
+        
+        {/* Titlebar */}
+        <div className="flex items-center justify-between px-4 py-2 bg-[#FFE600] text-black border-b-[3px] border-black font-mono font-black text-xs uppercase tracking-wider">
+          <span>COMMAND MATRIX SEARCH (CTRL+K)</span>
+          <button
+            onClick={onClose}
+            className="w-5 h-5 bg-black text-[#FFE600] flex items-center justify-center hover:bg-red-600 hover:text-white"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
         {/* Search header */}
-        <div className="flex items-center px-4 py-3.5 border-b border-slate-800">
-          <Search className="w-5 h-5 text-cyan-400 mr-3" />
+        <div className="flex items-center px-4 py-3 bg-[#181a24] border-b-2 border-black">
+          <Search className="w-5 h-5 text-[#FFE600] mr-3 shrink-0" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Ketik untuk mencari proyek atau teknologi..."
-            className="w-full bg-transparent text-sm text-slate-100 placeholder-slate-500 focus:outline-none"
+            placeholder="Ketik nama OS, topik, atau kata kunci..."
+            className="w-full bg-transparent text-sm font-mono font-bold text-white placeholder-zinc-500 focus:outline-none"
             autoFocus
           />
-          <button
-            onClick={onClose}
-            className="text-slate-400 hover:text-white p-1 rounded-md"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-
-        {/* Results list */}
-        <div className="max-h-80 overflow-y-auto p-2 space-y-1">
-          {filtered.length === 0 ? (
-            <div className="text-center py-8 text-xs text-slate-500">
-              Tidak ada proyek yang sesuai dengan pencarian "{query}"
-            </div>
-          ) : (
-            filtered.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  onSelectProject(item);
-                  onClose();
-                }}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-800/90 cursor-pointer group transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform" />
-                  <div>
-                    <h5 className="text-sm font-semibold text-slate-200 group-hover:text-cyan-300">
-                      {item.name}
-                    </h5>
-                    <p className="text-[11px] text-slate-400 font-mono">
-                      {item.category}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  {item.hasDemo && (
-                    <span className="text-[10px] bg-emerald-950 text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-800/60 font-mono">
-                      Demo
-                    </span>
-                  )}
-                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
-                </div>
-              </div>
-            ))
+          {query && (
+            <button
+              onClick={() => setQuery('')}
+              className="text-zinc-400 hover:text-white font-bold font-mono text-xs"
+            >
+              CLEAR
+            </button>
           )}
         </div>
 
-        {/* Footer hints */}
-        <div className="px-4 py-2 bg-slate-950/80 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center justify-between font-mono">
-          <span>Tekan ESC untuk menutup</span>
-          <span>olyx project launcher</span>
+        {/* Results list */}
+        <div className="max-h-80 overflow-y-auto divide-y-2 divide-black">
+          {filtered.length > 0 ? (
+            filtered.map((project) => (
+              <div
+                key={project.id}
+                onClick={() => {
+                  onSelectProject(project);
+                  onClose();
+                }}
+                className="p-3.5 flex items-center justify-between cursor-pointer hover:bg-[#FFE600] hover:text-black group transition-colors"
+              >
+                <div className="min-w-0 pr-3">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-mono text-[9px] font-black uppercase px-1.5 py-0.5 bg-black text-white group-hover:bg-black group-hover:text-[#FFE600]">
+                      {project.category}
+                    </span>
+                    <h4 className="font-black text-sm uppercase truncate text-white group-hover:text-black">
+                      {project.name}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-zinc-400 group-hover:text-black/80 font-medium truncate">
+                    {project.description}
+                  </p>
+                </div>
+
+                <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-black shrink-0 group-hover:translate-x-1 transition-transform" />
+              </div>
+            ))
+          ) : (
+            <div className="p-8 text-center text-zinc-500 font-mono text-xs">
+              TIDAK ADA HASIL UNTUK &quot;{query}&quot;
+            </div>
+          )}
         </div>
+
+        {/* Footer shortcuts */}
+        <div className="px-4 py-2 bg-[#12141d] border-t-2 border-black flex items-center justify-between text-[10px] font-mono text-zinc-400">
+          <span>{filtered.length} HASIL DITEMUKAN</span>
+          <div className="flex items-center gap-2">
+            <span>[ESC] TUTUP</span>
+            <span>&bull;</span>
+            <span>[ENTER] PILIH</span>
+          </div>
+        </div>
+
       </div>
     </div>
   );

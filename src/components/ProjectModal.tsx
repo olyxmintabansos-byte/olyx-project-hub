@@ -5,10 +5,10 @@ import {
   Github,
   Copy,
   Check,
-  Tag,
   ShieldCheck,
   Terminal,
   Layers,
+  Box,
 } from 'lucide-react';
 import { Project } from '../types/project';
 
@@ -25,9 +25,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
-    window.addEventListener('keydown', handleKeyDown);
+    if (project) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+  }, [project, onClose]);
 
   if (!project) return null;
 
@@ -40,63 +42,80 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-950/80 backdrop-blur-md transition-all">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
       {/* Backdrop click to dismiss */}
       <div className="fixed inset-0" onClick={onClose} />
 
-      {/* Modal Dialog Card */}
-      <div className="relative w-full max-w-2xl bg-slate-900 border border-slate-700/80 rounded-t-3xl sm:rounded-2xl p-6 sm:p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+      {/* Modal Dialog Card (Neobrutalism Window) */}
+      <div className="relative w-full max-w-2xl bg-[#0e1017] border-[3px] border-black shadow-[10px_10px_0px_#000] z-10 max-h-[90vh] overflow-y-auto">
         
-        {/* Top Header */}
-        <div className="flex items-start justify-between gap-4 pb-4 border-b border-slate-800">
-          <div>
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-xs font-mono uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/40">
-                {project.category}
-              </span>
-              <span className="text-xs font-medium text-slate-400 flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                {project.status}
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              {project.name}
-            </h2>
+        {/* Retro Window Titlebar */}
+        <div className="flex items-center justify-between px-4 py-2.5 bg-[#FFE600] text-black border-b-[3px] border-black font-mono font-black text-xs uppercase tracking-wider">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 bg-black inline-block"></span>
+            <span>OS INSPECTOR // {project.id}</span>
           </div>
 
-          <button
-            onClick={onClose}
-            className="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
-            title="Tutup (ESC)"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-1.5">
+            <span className="hidden sm:inline-block text-[10px] text-black/70 mr-2">ESC TO CLOSE</span>
+            <button
+              onClick={onClose}
+              className="w-6 h-6 bg-black text-[#FFE600] border border-black flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
         {/* Content Body */}
-        <div className="py-5 space-y-6">
-          {/* Detailed Description */}
+        <div className="p-6 space-y-6">
+          
+          {/* Header Info */}
           <div>
-            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-              <Layers className="w-3.5 h-3.5 text-cyan-400" />
-              Tentang Proyek
+            <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-[#00F0FF] text-black border-2 border-black shadow-[2px_2px_0px_#000]">
+                {project.category}
+              </span>
+              <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-[#4ADE80] text-black border-2 border-black shadow-[2px_2px_0px_#000]">
+                {project.status}
+              </span>
+              {project.badge && (
+                <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-[#FB7185] text-black border-2 border-black shadow-[2px_2px_0px_#000]">
+                  {project.badge}
+                </span>
+              )}
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mt-1">
+              {project.name}
+            </h2>
+            {project.highlightStats && (
+              <p className="text-xs font-mono text-[#FFE600] font-bold mt-1">
+                // SPECIFICATION: {project.highlightStats}
+              </p>
+            )}
+          </div>
+
+          {/* Detailed Architecture Description */}
+          <div className="bg-[#181a24] p-4 border-2 border-black shadow-[3px_3px_0px_#000] space-y-2">
+            <h4 className="text-[11px] font-mono font-black uppercase tracking-wider text-[#00F0FF]">
+              RINGKASAN ARSITEKTUR &amp; FITUR:
             </h4>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed font-medium">
               {project.longDescription || project.description}
             </p>
           </div>
 
-          {/* Tech Stack Badges */}
-          <div>
-            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-              <Tag className="w-3.5 h-3.5 text-cyan-400" />
-              Teknologi & Topik
+          {/* Topics & Components */}
+          <div className="space-y-2">
+            <h4 className="text-[11px] font-mono font-black uppercase tracking-wider text-zinc-400">
+              MODUL &amp; TECH STACK:
             </h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {project.topics.map((topic) => (
                 <span
                   key={topic}
-                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 border border-slate-700 text-cyan-200"
+                  className="px-2.5 py-1 text-xs font-mono font-bold bg-black text-[#FFE600] border-2 border-black shadow-[2px_2px_0px_#000]"
                 >
                   {topic}
                 </span>
@@ -104,76 +123,60 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
           </div>
 
-          {/* THE DUAL-ACTION BUTTONS: LIVE DEMO & REPOSITORY */}
-          <div className="pt-2">
-            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-              Pilih Aksi / Tujuan:
-            </h4>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              {/* BUTTON 1: LIVE DEMO */}
-              {project.hasDemo ? (
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all transform hover:-translate-y-0.5"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span>Buka Live Demo</span>
-                </a>
-              ) : (
-                <div
-                  className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-400 text-sm font-medium cursor-not-allowed text-center"
-                  title="Live Demo belum tersedia untuk proyek ini"
-                >
-                  <span>Live Demo Segera Hadir</span>
-                </div>
-              )}
-
-              {/* BUTTON 2: GITHUB REPOSITORY */}
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-slate-500 text-white font-bold text-sm shadow-md transition-all transform hover:-translate-y-0.5"
-              >
-                <Github className="w-4 h-4" />
-                <span>Buka Source Code / Repo</span>
-              </a>
-            </div>
-          </div>
-
-          {/* QUICK CLONE TERMINAL BOX */}
-          <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-            <div className="flex items-center justify-between text-xs text-slate-400 font-mono">
-              <span className="flex items-center gap-1.5">
-                <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                Quick Clone via Git CLI:
+          {/* Terminal Quick Clone */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono">
+              <span className="flex items-center gap-1.5 font-black uppercase text-zinc-300">
+                <Terminal className="w-3.5 h-3.5 text-[#4ADE80]" />
+                QUICK CLONE REPOSITORY:
               </span>
-              {copied && (
-                <span className="text-emerald-400 font-sans flex items-center gap-1">
-                  <Check className="w-3 h-3" /> Berhasil disalin!
-                </span>
-              )}
-            </div>
-
-            <div className="flex items-center justify-between gap-2 bg-slate-900/90 px-3 py-2 rounded-lg border border-slate-800">
-              <code className="text-xs font-mono text-cyan-300 truncate">
-                {cloneCommand}
-              </code>
               <button
                 onClick={handleCopyClone}
-                className="p-1.5 rounded-md hover:bg-slate-800 text-slate-400 hover:text-white transition-colors shrink-0"
-                title="Salin git clone command"
+                className="neo-btn flex items-center gap-1 px-2.5 py-0.5 bg-[#4ADE80] text-black text-[11px] font-black uppercase"
               >
                 {copied ? (
-                  <Check className="w-4 h-4 text-emerald-400" />
+                  <>
+                    <Check className="w-3 h-3" />
+                    <span>TERSALIN!</span>
+                  </>
                 ) : (
-                  <Copy className="w-4 h-4" />
+                  <>
+                    <Copy className="w-3 h-3" />
+                    <span>SALIN SCRIPT</span>
+                  </>
                 )}
               </button>
             </div>
+
+            <div className="p-3 bg-black border-2 border-black font-mono text-xs text-[#4ADE80] overflow-x-auto shadow-[3px_3px_0px_#000]">
+              <span className="text-zinc-600 select-none">$ </span>
+              {cloneCommand}
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="pt-3 border-t-2 border-black flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3">
+            {project.hasDemo && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="neo-btn flex items-center justify-center gap-2 px-5 py-2.5 bg-[#FFE600] text-black font-black text-xs uppercase tracking-wider"
+              >
+                <span>BUKA LIVE DEMO</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            )}
+
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="neo-btn flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-black font-black text-xs uppercase tracking-wider"
+            >
+              <Github className="w-4 h-4" />
+              <span>SOURCE CODE</span>
+            </a>
           </div>
 
         </div>

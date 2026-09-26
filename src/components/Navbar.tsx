@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Search, Terminal, Sparkles } from 'lucide-react';
+import { Github, Search, Terminal, Zap } from 'lucide-react';
 
 interface NavbarProps {
   onOpenCommandPalette: () => void;
@@ -7,34 +7,28 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b-[3px] border-black bg-[#0e1017]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Profile & Branding */}
         <div className="flex items-center gap-3">
-          <div className="relative group cursor-pointer">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-300"></div>
+          <div className="relative cursor-pointer">
             <img
               src="https://avatars.githubusercontent.com/u/258238197?v=4"
               alt="olyx avatar"
-              className="relative w-9 h-9 rounded-full object-cover border border-slate-700 bg-slate-800"
+              className="w-10 h-10 rounded-none border-2 border-black bg-[#FFE600] shadow-[2px_2px_0px_#000] object-cover"
             />
-            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-slate-950 rounded-full animate-pulse"></span>
+            <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#4ADE80] border-2 border-black"></span>
           </div>
 
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-slate-100 tracking-tight text-sm sm:text-base">
-                olyx
-              </span>
-              <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-cyan-950/80 text-cyan-400 border border-cyan-800/60">
-                <Terminal className="w-3 h-3 mr-1" />
-                hub
-              </span>
-            </div>
-            <p className="text-xs text-slate-400 font-mono">
-              @olyxmintabansos-byte
-            </p>
+          <div className="flex items-center gap-2">
+            <span className="bg-[#FFE600] text-black font-black px-2 py-0.5 text-xs sm:text-sm uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000]">
+              OLYX
+            </span>
+            <span className="bg-[#00F0FF] text-black font-mono font-bold px-1.5 py-0.5 text-[11px] uppercase border-2 border-black shadow-[2px_2px_0px_#000] hidden sm:inline-flex items-center gap-1">
+              <Zap className="w-3 h-3 fill-black" />
+              HUB // 42 OS
+            </span>
           </div>
         </div>
 
@@ -43,12 +37,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
           {/* Quick Search trigger button */}
           <button
             onClick={onOpenCommandPalette}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 text-xs transition-all shadow-inner"
+            className="neo-btn flex items-center gap-2 px-3 py-1.5 bg-[#181a24] text-zinc-200 text-xs font-mono font-bold hover:bg-[#222533]"
             title="Buka Command Palette (Ctrl+K)"
           >
-            <Search className="w-3.5 h-3.5 text-cyan-400" />
-            <span className="hidden md:inline">Cari Proyek...</span>
-            <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">
+            <Search className="w-3.5 h-3.5 text-[#FFE600]" />
+            <span className="hidden md:inline">SEARCH MATRIX...</span>
+            <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-black text-[#FFE600] border border-zinc-700">
               Ctrl+K
             </kbd>
           </button>
@@ -58,11 +52,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             href="https://github.com/olyxmintabansos-byte"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-white text-xs font-medium transition-all group"
+            className="neo-btn inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FFE600] text-black text-xs font-black uppercase tracking-wider"
           >
-            <Github className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400 transition-colors" />
-            <span className="hidden sm:inline">GitHub Profile</span>
-            <Sparkles className="w-3 h-3 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <Github className="w-4 h-4 fill-black" />
+            <span className="hidden sm:inline">GITHUB</span>
           </a>
         </div>
 

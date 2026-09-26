@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rocket, Sparkles, FolderGit2, Globe, Cpu } from 'lucide-react';
+import { Globe, FolderGit2, Cpu, Layers } from 'lucide-react';
 
 interface HeroSectionProps {
   totalProjects: number;
@@ -11,62 +11,90 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   liveDemos,
 }) => {
   return (
-    <section className="relative pt-10 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-56 bg-gradient-to-b from-cyan-500/10 via-emerald-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
-
-      <div className="text-center max-w-3xl mx-auto">
-        {/* Status Chip */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-800/40 text-cyan-300 text-xs font-mono mb-4">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>Open Source Developer & Tool Creator</span>
+    <section className="relative pt-10 pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="text-center max-w-4xl mx-auto space-y-6">
+        
+        {/* Neobrutalist Sticker Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
+          <span className="inline-block bg-[#FFE600] text-black font-mono text-xs font-black uppercase px-3 py-1 border-2 border-black shadow-[3px_3px_0px_#000] rotate-[-1deg]">
+            ★ {totalProjects} PRODUCTION DEPLOYMENTS
+          </span>
+          <span className="inline-block bg-[#4ADE80] text-black font-mono text-xs font-black uppercase px-3 py-1 border-2 border-black shadow-[3px_3px_0px_#000] rotate-[1deg]">
+            ● 100% CLIENT-SIDE & LOCAL-FIRST
+          </span>
+          <span className="inline-block bg-[#00F0FF] text-black font-mono text-xs font-black uppercase px-3 py-1 border-2 border-black shadow-[3px_3px_0px_#000] hidden sm:inline-block">
+            ◆ ZERO SERVER OVERHEAD
+          </span>
         </div>
 
-        {/* Main Headline */}
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
-          Command Center &{' '}
-          <span className="cyber-gradient-text">Project Launcher</span>
-        </h1>
+        {/* Main Brutalist Headline */}
+        <div>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
+            OLYX SYSTEM <br className="hidden sm:inline" />
+            <span className="bg-[#FFE600] text-black px-3 py-0.5 inline-block border-[3px] border-black shadow-[5px_5px_0px_#00F0FF] mt-2">
+              ARCHIVE // 42 OS
+            </span>
+          </h1>
+        </div>
 
-        {/* Tagline */}
-        <p className="text-sm sm:text-base text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto">
-          Gerbang terpadu untuk mengakses aplikasi web siap pakai, simulasi tools Growtopia, 
-          dan repository open source karya <strong className="text-slate-200">olyxmintabansos-byte</strong>. 
-          Pilih proyek untuk membuka <span className="text-cyan-400 font-medium">Live Demo</span> atau <span className="text-emerald-400 font-medium">Source Code</span>.
+        {/* Subtitle */}
+        <p className="text-sm sm:text-base text-zinc-300 font-medium leading-relaxed max-w-3xl mx-auto bg-[#13151f] p-4 border-2 border-black shadow-[4px_4px_0px_#000]">
+          Katalog rekayasa sistem terdistribusi: SCADA WTP & transmisi 500 kV, pelabuhan kargo TEU, bandara apron turnaround, konsensus multi-agen LLM, tender LPSE pemerintah, hingga utilitas gaming karya <strong className="text-[#FFE600] font-bold">@olyxmintabansos-byte</strong>.
         </p>
 
-        {/* Quick Stat Badges */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-lg mx-auto">
-          <div className="glass-card rounded-xl p-3 text-center border-slate-800">
-            <div className="flex items-center justify-center gap-1.5 text-cyan-400 mb-1">
+        {/* 4 Chunky Neobrutalist Stat Blocks */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto pt-2">
+          
+          {/* Stat 1: Deployed */}
+          <div className="bg-[#FFE600] text-black p-3.5 border-2 border-black shadow-[4px_4px_0px_#000] text-left">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-mono font-black uppercase">LIVE READY</span>
               <Globe className="w-4 h-4" />
-              <span className="text-xl font-bold font-mono">{liveDemos}</span>
             </div>
-            <p className="text-[11px] uppercase tracking-wider text-slate-400 font-medium">
-              Live Demos
+            <div className="text-3xl font-black font-mono">{liveDemos}</div>
+            <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-black/70">
+              Active HTTP 200
             </p>
           </div>
 
-          <div className="glass-card rounded-xl p-3 text-center border-slate-800">
-            <div className="flex items-center justify-center gap-1.5 text-emerald-400 mb-1">
+          {/* Stat 2: Total Projects */}
+          <div className="bg-[#4ADE80] text-black p-3.5 border-2 border-black shadow-[4px_4px_0px_#000] text-left">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-mono font-black uppercase">REPOSITORIES</span>
               <FolderGit2 className="w-4 h-4" />
-              <span className="text-xl font-bold font-mono">{totalProjects}</span>
             </div>
-            <p className="text-[11px] uppercase tracking-wider text-slate-400 font-medium">
-              Total Projects
+            <div className="text-3xl font-black font-mono">{totalProjects}</div>
+            <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-black/70">
+              GitHub Repos
             </p>
           </div>
 
-          <div className="col-span-2 sm:col-span-1 glass-card rounded-xl p-3 text-center border-slate-800">
-            <div className="flex items-center justify-center gap-1.5 text-purple-400 mb-1">
-              <Cpu className="w-4 h-4" />
-              <span className="text-xl font-bold font-mono">100%</span>
+          {/* Stat 3: Clusters */}
+          <div className="bg-[#00F0FF] text-black p-3.5 border-2 border-black shadow-[4px_4px_0px_#000] text-left">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-mono font-black uppercase">DOMAINS</span>
+              <Layers className="w-4 h-4" />
             </div>
-            <p className="text-[11px] uppercase tracking-wider text-slate-400 font-medium">
-              Open Source
+            <div className="text-3xl font-black font-mono">7</div>
+            <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-black/70">
+              Specialized Hubs
             </p>
           </div>
+
+          {/* Stat 4: Open Source */}
+          <div className="bg-[#FB7185] text-black p-3.5 border-2 border-black shadow-[4px_4px_0px_#000] text-left">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-mono font-black uppercase">LICENSE</span>
+              <Cpu className="w-4 h-4" />
+            </div>
+            <div className="text-3xl font-black font-mono">100%</div>
+            <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-black/70">
+              Open Source MIT
+            </p>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

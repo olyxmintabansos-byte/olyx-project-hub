@@ -1,32 +1,37 @@
 import React from 'react';
-import { Github, Heart, Code2 } from 'lucide-react';
+import { Github, Terminal } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="mt-20 border-t border-slate-800/80 bg-slate-950/60 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+    <footer className="mt-20 border-t-[3px] border-black bg-[#0e1017] py-8 px-4 sm:px-6 lg:px-8 font-mono text-xs">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         
-        <div className="flex items-center gap-2">
-          <Code2 className="w-4 h-4 text-cyan-400" />
-          <span>
-            Dibuat untuk <strong className="text-slate-200">olyxmintabansos-byte</strong> &bull; Olyx Project Hub & Launcher
+        {/* Left Stamp */}
+        <div className="flex items-center gap-3 flex-wrap">
+          <span className="bg-[#FFE600] text-black font-black px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000]">
+            OLYX SYSTEM ARCHIVE
+          </span>
+          <span className="text-zinc-400">
+            &bull; 42 Local-First Client-Side Web OS
           </span>
         </div>
 
-        <div className="flex items-center gap-4">
+        {/* Center / Right Links */}
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 text-[#4ADE80] font-bold">
+            <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse" />
+            <span>ALL SYSTEMS 200 OK</span>
+          </div>
+          <span className="text-zinc-700">|</span>
           <a
             href="https://github.com/olyxmintabansos-byte"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
+            className="neo-btn inline-flex items-center gap-1.5 px-3 py-1 bg-white text-black font-bold uppercase"
           >
-            <Github className="w-4 h-4" />
-            <span>GitHub Profile</span>
+            <Github className="w-3.5 h-3.5" />
+            <span>@olyxmintabansos-byte</span>
           </a>
-          <span className="text-slate-700">&bull;</span>
-          <span className="font-mono text-slate-400 text-[11px]">
-            Ready for GitHub Pages
-          </span>
         </div>
 
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
+import { MarqueeTicker } from './components/MarqueeTicker';
 import { HeroSection } from './components/HeroSection';
 import { FilterBar } from './components/FilterBar';
 import { ProjectCard } from './components/ProjectCard';
@@ -9,7 +10,7 @@ import { Footer } from './components/Footer';
 import { PROJECTS } from './data/projects';
 import { useFilter } from './hooks/useFilter';
 import { Project } from './types/project';
-import { SearchX } from 'lucide-react';
+import { SearchX, RotateCcw } from 'lucide-react';
 
 export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -26,9 +27,12 @@ export function App() {
   } = useFilter(PROJECTS);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#030712] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen flex flex-col bg-[#08090d] text-zinc-100 selection:bg-[#FFE600] selection:text-black font-sans">
       {/* Top Navbar */}
       <Navbar onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
+
+      {/* Neobrutalist Marquee Ticker Tape */}
+      <MarqueeTicker />
 
       {/* Main Content Area */}
       <main className="flex-1">
@@ -61,22 +65,23 @@ export function App() {
               ))}
             </div>
           ) : (
-            /* Empty State */
-            <div className="text-center py-20 px-4 glass-card rounded-2xl max-w-md mx-auto">
-              <div className="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mx-auto mb-4 text-slate-500">
-                <SearchX className="w-6 h-6" />
+            /* Neobrutalist Empty State */
+            <div className="text-center py-16 px-6 bg-[#12141d] border-[3px] border-black shadow-[6px_6px_0px_#000] max-w-lg mx-auto">
+              <div className="w-14 h-14 bg-[#FFE600] border-2 border-black shadow-[3px_3px_0px_#000] flex items-center justify-center mx-auto mb-4 text-black">
+                <SearchX className="w-7 h-7" />
               </div>
-              <h3 className="text-base font-semibold text-slate-200 mb-1">
-                Proyek Tidak Ditemukan
+              <h3 className="text-lg font-black uppercase text-white mb-2 tracking-tight">
+                SISTEM TIDAK DITEMUKAN
               </h3>
-              <p className="text-xs text-slate-400 mb-5 leading-relaxed">
-                Tidak ada repositori atau tools yang cocok dengan kriteria pencarian saat ini.
+              <p className="text-xs text-zinc-400 font-medium mb-6 leading-relaxed max-w-sm mx-auto">
+                Tidak ada repositori atau SCADA OS yang cocok dengan kata kunci &quot;{filter.searchQuery}&quot; pada filter saat ini.
               </p>
               <button
                 onClick={resetFilter}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-cyan-300 text-xs font-semibold rounded-lg border border-slate-700 transition-colors"
+                className="neo-btn inline-flex items-center gap-2 px-5 py-2.5 bg-[#FFE600] text-black text-xs font-black uppercase tracking-wider"
               >
-                Reset Semua Filter
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>RESET SEMUA FILTER</span>
               </button>
             </div>
           )}
@@ -97,7 +102,7 @@ export function App() {
         onSelectProject={(p) => setSelectedProject(p)}
       />
 
-      {/* Footer */}
+      {/* Neobrutalist Footer */}
       <Footer />
     </div>
   );

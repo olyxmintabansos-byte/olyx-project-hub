@@ -1,10 +1,12 @@
 export type CategoryType = 
   | 'All'
-  | 'Healthcare & Enterprise'
-  | 'Fintech & SaaS'
-  | 'Growtopia Tools'
-  | 'AI & Utilities'
-  | 'Gaming & Others';
+  | 'Industrial & SCADA OS'
+  | 'Enterprise & Governance'
+  | 'Fintech & Commerce'
+  | 'AI & Synthetic Intelligence'
+  | 'Healthcare & Medical'
+  | 'Growtopia & Gaming'
+  | 'Utilities & Media';
 
 export interface Project {
   id: string;
@@ -21,6 +23,8 @@ export interface Project {
   icon: string;
   stars?: number;
   highlightStats?: string;
+  badge?: string;
+  colorScheme?: 'yellow' | 'cyan' | 'lime' | 'pink' | 'purple' | 'orange' | 'blue';
 }
 
 export interface FilterState {
