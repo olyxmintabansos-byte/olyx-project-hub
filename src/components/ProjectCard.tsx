@@ -41,6 +41,14 @@ import {
   ShieldAlert,
   HeartPulse,
   Store,
+  Pill,
+  Microscope,
+  Fish,
+  Sprout,
+  Snowflake,
+  Compass,
+  MapPin,
+  PawPrint,
 } from 'lucide-react';
 import { Project } from '../types/project';
 
@@ -82,6 +90,14 @@ const iconMap: Record<string, React.ReactNode> = {
   ShieldAlert: <ShieldAlert className="w-5 h-5 text-black" />,
   HeartPulse: <HeartPulse className="w-5 h-5 text-black" />,
   Store: <Store className="w-5 h-5 text-black" />,
+  Pill: <Pill className="w-5 h-5 text-black" />,
+  Microscope: <Microscope className="w-5 h-5 text-black" />,
+  Fish: <Fish className="w-5 h-5 text-black" />,
+  Sprout: <Sprout className="w-5 h-5 text-black" />,
+  Snowflake: <Snowflake className="w-5 h-5 text-black" />,
+  Compass: <Compass className="w-5 h-5 text-black" />,
+  MapPin: <MapPin className="w-5 h-5 text-black" />,
+  PawPrint: <PawPrint className="w-5 h-5 text-black" />,
 };
 
 const colorMap = {
@@ -133,10 +149,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
                 {project.badge}
               </span>
             )}
-            <span className="inline-flex items-center gap-1 font-mono text-[10px] font-black text-[#4ADE80] bg-black px-1.5 py-0.5 border border-zinc-800">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-              LIVE
-            </span>
+            {project.hasDemo ? (
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] font-black text-[#4ADE80] bg-black px-1.5 py-0.5 border border-zinc-800">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                LIVE
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] font-black text-[#FB7185] bg-black px-1.5 py-0.5 border border-zinc-800">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FB7185]" />
+                DEV
+              </span>
+            )}
           </div>
         </div>
 
@@ -183,7 +206,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
       {/* Action Footer */}
       <div className="pt-3 border-t-2 border-black flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          {project.hasDemo && (
+          {project.hasDemo ? (
             <button
               onClick={(e) => handleOpenLink(e, project.demoUrl)}
               className="neo-btn inline-flex items-center gap-1.5 px-3 py-1 bg-[#FFE600] text-black font-black text-xs uppercase"
@@ -192,6 +215,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
               <span>DEMO</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </button>
+          ) : (
+            <span className="text-[10px] font-mono font-bold text-zinc-400 bg-black px-2 py-1 border border-zinc-800">
+              REPO ONLY
+            </span>
           )}
 
           <button

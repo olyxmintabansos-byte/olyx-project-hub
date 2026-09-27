@@ -156,7 +156,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {/* Action Buttons */}
           <div className="pt-3 border-t-2 border-black flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3">
-            {project.hasDemo && (
+            {project.hasDemo ? (
               <a
                 href={project.demoUrl}
                 target="_blank"
@@ -166,6 +166,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 <span>BUKA LIVE DEMO</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
+            ) : (
+              <span className="font-mono text-xs font-bold text-zinc-400 bg-black border-2 border-zinc-700 px-4 py-2.5 text-center uppercase">
+                DEMO DALAM PENGEMBANGAN
+              </span>
             )}
 
             <a
